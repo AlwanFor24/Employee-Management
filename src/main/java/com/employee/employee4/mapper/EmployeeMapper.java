@@ -9,6 +9,7 @@ public class EmployeeMapper {
     public static EmployeeDto mapToEmployeeDto(Employee employee){
         EmployeeDto employeeDto = new EmployeeDto(
                 employee.getId(),
+                employee.getNip(),
                 employee.getNama(),
                 employee.getFoto(),
                 employee.getDepartement().getNamadepart(),
@@ -17,6 +18,7 @@ public class EmployeeMapper {
                 employee.getSalary(),
                 employee.getCreatedAt(),
                 employee.getUpdatedAt()
+
         );
         return employeeDto;
     }
@@ -24,13 +26,16 @@ public class EmployeeMapper {
     public static Employee mapToEmployee(EmployeeDto employeeDto){
         Employee employee = new Employee(
                 employeeDto.getId(),
+                employeeDto.getNip(),
                 employeeDto.getFoto(),
                 employeeDto.getNama(),
                 employeeDto.getDepartement().getNamadepart(),
                 employeeDto.getRiwayatpend().getRiwayat(),
                 employeeDto.getNotelp(),
                 employeeDto.getEmail(),
-                employeeDto.getSalary()
+                employeeDto.getSalary(),
+                employeeDto.getCreatedAt(),
+                employeeDto.getUpdatedAt()
         );
         return employee;
     }

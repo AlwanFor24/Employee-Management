@@ -13,14 +13,14 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-
-public class ResignDto {
+public class CutiDto {
     private Long id;
     private Employee employee;
     private String alasan;
-    private boolean status;
     private Date createdAt;
 
-    public ResignDto(Long id, String nama, String alasan,Date createdAt) {
+
+
+    public CutiDto(Long id, String nama, Date createdAt, String Alasan) {
     }
 }

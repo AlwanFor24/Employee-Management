@@ -1,16 +1,14 @@
 package com.employee.employee4.service;
 
 import com.employee.employee4.dto.UserDto;
+import com.employee.employee4.entity.User;
 
 import java.util.List;
 
 public interface UserService {
-    List<UserDto> getAllUsers();
-    void createUser(UserDto user);
+    void saveUser(UserDto userDto);
 
-    UserDto getUserById(Long userId);
+    User findUserByEmail(String email);
 
-    void updateUser(UserDto userDto);
-
-    void deleteUser(Long userId);
+    List<UserDto> findAllUsers();
 }

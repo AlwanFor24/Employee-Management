@@ -7,20 +7,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
     private Long id;
-    private String username;
+    @NotEmpty
+    private String firstName;
+    @NotEmpty
+    private String lastName;
+    @NotEmpty(message = "Email should not be empty")
+    @Email
     private String email;
+    @NotEmpty(message = "Password should be empty")
     private String password;
-    private Date createdAt;
-    private Date updatedAt;
-
-    public UserDto(Long id, String username, String email, String password) {
-    }
 }

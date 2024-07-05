@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.util.Date;
 
 @Getter
@@ -13,8 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "resigns")
-public class Resign {
+@Table(name = "cutis")
+public class Cuti {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,9 +27,6 @@ public class Resign {
     @Column(nullable = false)
     private String alasan;
 
-    @Column
-    private boolean status;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @org.hibernate.annotations.CreationTimestamp
@@ -36,9 +34,8 @@ public class Resign {
 
 
 
-    public Resign(Long id,
-                  String nama,
-                  String alasan,
-                  Date createdAt) {
+
+
+    public Cuti(Long id, String nama, Date createdAt, String alasan) {
     }
 }

@@ -23,7 +23,10 @@ public class Employee {
     private Long id;
 
     @Column(nullable = false)
-    private byte[] foto;
+    private int nip;
+
+    @Column(nullable = false)
+    private byte[] foto = new byte[0];
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -57,11 +60,15 @@ public class Employee {
 
     //Konstruktor buat mapper
     public Employee(Long id,
+                    int nip,
                     byte[] foto,
                     String nama,
                     String namadepart,
                     String riwayat,
-                    int notelp, String email,
-                    float salary) {
+                    int notelp,
+                    String email,
+                    float salary,
+                    Date createdAt,
+                    Date updatedAt) {
     }
 }

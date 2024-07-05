@@ -17,6 +17,7 @@ import java.util.Date;
 
 public class EmployeeDto {
     private Long id;
+    private int nip;
     private byte[] foto;
     private String nama;
     private Departement departement;
@@ -27,8 +28,10 @@ public class EmployeeDto {
     private Date createdAt;
     private Date updatedAt;
 
+
     //Konstruktor buat mapper
     public EmployeeDto(Long id,
+                       int nip,
                        String nama,
                        byte[] foto,
                        String namadepart,
@@ -36,7 +39,8 @@ public class EmployeeDto {
                        String email,
                        float salary,
                        Date createdAt,
-                       Date updatedAt) {
+                       Date updatedAt
+                       ) {
 
     }
 }
