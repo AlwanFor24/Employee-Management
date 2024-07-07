@@ -14,6 +14,7 @@ import lombok.Setter;
 @Entity
 @Table(name="riwayatpends")
 public class Riwayatpend {
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,5 +24,29 @@ public class Riwayatpend {
 
     public Riwayatpend(Long id, String riwayat){
 
+    }
+
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column
+    private String pendidikan;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPendidikan() {
+        return pendidikan;
+    }
+
+    public void setPendidikan(String pendidikan) {
+        this.pendidikan = pendidikan;
     }
 }

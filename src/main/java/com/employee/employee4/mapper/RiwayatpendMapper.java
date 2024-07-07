@@ -4,6 +4,7 @@ import com.employee.employee4.dto.RiwayatpendDto;
 import com.employee.employee4.entity.Riwayatpend;
 
 public class RiwayatpendMapper {
+    /*
     public static RiwayatpendDto mapToRiwayatpendDto(Riwayatpend riwayatpend){
         RiwayatpendDto riwayatpendDto = new RiwayatpendDto(
                 riwayatpend.getId(),
@@ -20,5 +21,7 @@ public class RiwayatpendMapper {
         return riwayatpend;
     }
 
+
+     */
 
 }

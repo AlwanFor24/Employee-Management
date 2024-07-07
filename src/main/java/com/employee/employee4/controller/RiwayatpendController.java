@@ -1,10 +1,12 @@
 package com.employee.employee4.controller;
 
+import com.employee.employee4.entity.Riwayatpend;
 import jakarta.validation.Valid;
 
 import com.employee.employee4.dto.RiwayatpendDto;
 import com.employee.employee4.service.RiwayatpendService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @Controller
 public class RiwayatpendController {
+    /*
     private RiwayatpendService riwayatpendService;
 
     public RiwayatpendController(RiwayatpendService riwayatpendService) {
@@ -92,5 +95,44 @@ public class RiwayatpendController {
         RiwayatpendDto riwayatpendDto = riwayatpendService.getRiwayatpendById(riwayatpendId);
         model.addAttribute("riwayatpend", riwayatpendDto);
         return "view_riwayatpend";
+    }
+
+
+     */
+
+    @Autowired
+    private RiwayatpendService riwayatpendService;
+
+    @GetMapping("/riwayatpend")
+    public String viewHomePage(Model model) {
+        model.addAttribute("listRiwayatpends", riwayatpendService.getAllRiwayatpends());
+        return "index_riwayatpend";
+    }
+
+    @GetMapping("/showNewRiwayatpendForm")
+    public String showNewRiwayatpendForm(Model model) {
+        // Create model attribute to bind form data
+        Riwayatpend riwayatpend = new Riwayatpend();
+        model.addAttribute("riwayatpend", riwayatpend);
+        return "new_riwayatpend";
+    }
+
+    @PostMapping("/saveRiwayatpend")
+    public String saveRiwayatpend(@ModelAttribute("riwayatpend") Riwayatpend riwayatpend) {
+        riwayatpendService.saveRiwayatpend(riwayatpend);
+        return "redirect:/";
+    }
+
+    @GetMapping("/showFormRiwayatpendForUpdate/{id}")
+    public String showFormForUpdate(@PathVariable(value="id") long id, Model model) {
+        Riwayatpend riwayatpend = riwayatpendService.getRiwayatpendById(id);
+        model.addAttribute("riwayatpend", riwayatpend);
+        return "update_riwayatpend";
+    }
+
+    @GetMapping("/deleteRiwayatpend/{id}")
+    public String deleteRiwayatpend(@PathVariable (value = "id") long id) {
+        this.riwayatpendService.deleteRiwayatpendById(id);
+        return "redirect:/";
     }
 }

@@ -1,12 +1,14 @@
 package com.employee.employee4.controller;
 
 
+import com.employee.employee4.entity.Employee;
 import jakarta.validation.Valid;
 
 import com.employee.employee4.dto.EmployeeDto;
 import com.employee.employee4.service.EmployeeService;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +21,7 @@ import java.util.List;
 
     @Controller
     public class EmployeeController {
+        /*
 
         private EmployeeService employeeService;
 
@@ -44,7 +47,7 @@ import java.util.List;
         }
 
         // handler method to handle save employee form submit request
-        @PostMapping("/employees")
+        @PostMapping("/employees/submit")
         public String saveEmployee(@Valid @ModelAttribute("employee") EmployeeDto employee,
                                    BindingResult result,
                                    Model model){
@@ -95,5 +98,42 @@ import java.util.List;
             EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
             model.addAttribute("employee", employeeDto);
             return "view_employee";
+        }
+
+         */
+        @Autowired
+        private EmployeeService employeeService;
+
+        @GetMapping("/employee")
+        public String viewHomePage(Model model) {
+            model.addAttribute("listEmployees", employeeService.getAllEmployees());
+            return "index_employee";
+        }
+
+        @GetMapping("/showNewEmployeeForm")
+        public String showNewEmployeeForm(Model model) {
+            // Create model attribute to bind form data
+            Employee employee = new Employee();
+            model.addAttribute("employee", employee);
+            return "new_employee";
+        }
+
+        @PostMapping("/saveEmployee")
+        public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+            employeeService.saveEmployee(employee);
+            return "redirect:/employee";
+        }
+
+        @GetMapping("/showFormEmployeeForUpdate/{id}")
+        public String showFormForUpdate(@PathVariable(value="id") long id, Model model) {
+            Employee employee = employeeService.getEmployeeById(id);
+            model.addAttribute("employee", employee);
+            return "update_employee";
+        }
+
+        @GetMapping("/deleteEmployee/{id}")
+        public String deleteEmployee(@PathVariable (value = "id") long id) {
+            this.employeeService.deleteEmployeeById(id);
+            return "redirect:/employee";
         }
     }

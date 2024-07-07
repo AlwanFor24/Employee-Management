@@ -13,6 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "departements")
 public class Departement {
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +23,29 @@ public class Departement {
 
 
     public Departement(Long id, String namadepart) {
+    }
+
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column
+    private String namadepart;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNamadepart() {
+        return namadepart;
+    }
+
+    public void setNamadepart(String namadepart) {
+        this.namadepart = namadepart;
     }
 }

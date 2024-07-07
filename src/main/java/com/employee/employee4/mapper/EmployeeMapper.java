@@ -5,6 +5,7 @@ import com.employee.employee4.entity.Employee;
 import lombok.AllArgsConstructor;
 
 public class EmployeeMapper {
+    /*
 
     public static EmployeeDto mapToEmployeeDto(Employee employee){
         EmployeeDto employeeDto = new EmployeeDto(
@@ -12,8 +13,8 @@ public class EmployeeMapper {
                 employee.getNip(),
                 employee.getNama(),
                 employee.getFoto(),
-                employee.getDepartement().getNamadepart(),
-                employee.getRiwayatpend().getRiwayat(),
+                employee.getDepartement(),
+                employee.getRiwayatpend(),
                 employee.getEmail(),
                 employee.getSalary(),
                 employee.getCreatedAt(),
@@ -29,8 +30,8 @@ public class EmployeeMapper {
                 employeeDto.getNip(),
                 employeeDto.getFoto(),
                 employeeDto.getNama(),
-                employeeDto.getDepartement().getNamadepart(),
-                employeeDto.getRiwayatpend().getRiwayat(),
+                employeeDto.getDepartement(),
+                employeeDto.getRiwayatpend(),
                 employeeDto.getNotelp(),
                 employeeDto.getEmail(),
                 employeeDto.getSalary(),
@@ -39,5 +40,7 @@ public class EmployeeMapper {
         );
         return employee;
     }
+
+     */
 }
 

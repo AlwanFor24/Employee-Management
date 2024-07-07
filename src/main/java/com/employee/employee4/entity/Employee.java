@@ -17,6 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name = "employees")
 public class Employee {
+    /*
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,13 +29,11 @@ public class Employee {
     @Column(nullable = false)
     private byte[] foto = new byte[0];
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Departement departement;
+    @Column(nullable = false)
+    private String departement;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Riwayatpend riwayatpend;
+    @Column(nullable = false)
+    private String riwayatpend;
 
     @Column(nullable = false)
     private String nama;
@@ -70,5 +69,95 @@ public class Employee {
                     float salary,
                     Date createdAt,
                     Date updatedAt) {
+    }
+
+     */
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
+    private int nip;
+    @Column
+    private String nama;
+
+    @Column
+    private String departement;
+
+    @Column
+    private String riwayatpend;
+
+    @Column
+    private int notelp;
+
+    @Column
+    private String email;
+
+    @Column
+    private float gaji;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getNip() {
+        return nip;
+    }
+
+    public void setNip(int nip) {
+        this.nip = nip;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(String departement) {
+        this.departement = departement;
+    }
+
+    public String getRiwayatpend() {
+        return riwayatpend;
+    }
+
+    public void setRiwayatpend(String riwayatpend) {
+        this.riwayatpend = riwayatpend;
+    }
+
+    public int getNotelp() {
+        return notelp;
+    }
+
+    public void setNotelp(int notelp) {
+        this.notelp = notelp;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public float getGaji() {
+        return gaji;
+    }
+
+    public void setGaji(float gaji) {
+        this.gaji = gaji;
     }
 }

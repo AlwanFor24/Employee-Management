@@ -16,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Configuration
 @EnableWebSecurity
@@ -130,13 +132,28 @@ public class SecurityConfig {
                 .requestMatchers("/register/**").permitAll()
                 .requestMatchers("/index").permitAll()
                 .requestMatchers("/users").permitAll()
+                .requestMatchers("/employee").permitAll()
+                .requestMatchers("/showNewEmployeeForm").permitAll()
+                .requestMatchers("saveEmployee").permitAll()
+                .requestMatchers("showFormEmployeeForUpdate/{id}").permitAll()
+                .requestMatchers("deleteEmployee/{id}").permitAll()
+                .requestMatchers("/departement").permitAll()
+                .requestMatchers("/showNewDepartementForm").permitAll()
+                .requestMatchers("/saveDepartement").permitAll()
+                .requestMatchers("/showFormDepartementForUpdate/{id}").permitAll()
+                .requestMatchers("/deleteDepartement/{id}").permitAll()
+                .requestMatchers("/riwayatpend").permitAll()
+                .requestMatchers("/showNewRiwayatpendForm").permitAll()
+                .requestMatchers("/saveRiwayatpend").permitAll()
+                .requestMatchers("/showFormRiwayatpendForUpdate/{id}").permitAll()
+                .requestMatchers("/deleteRiwayatpend/{id}").permitAll()
                 //.requestMatchers("/users").hasRole("USER")
                 .and()
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/employee")
                                 .permitAll()
                 ).logout(
                         logout -> logout

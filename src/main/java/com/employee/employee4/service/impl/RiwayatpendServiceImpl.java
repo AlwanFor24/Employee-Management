@@ -10,11 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class RiwayatpendServiceImpl implements RiwayatpendService {
-
+/*
 
     private RiwayatpendRepository riwayatpendRepository;
 
@@ -53,5 +54,36 @@ public class RiwayatpendServiceImpl implements RiwayatpendService {
     @Override
     public void deleteRiwayatpend(Long riwayatpendId) {
         riwayatpendRepository.deleteById(riwayatpendId);
+    }
+
+ */
+@Autowired
+private RiwayatpendRepository riwayatpendRepository;
+
+    @Override
+    public List<Riwayatpend> getAllRiwayatpends() {
+        return riwayatpendRepository.findAll();
+    }
+
+    @Override
+    public void saveRiwayatpend(Riwayatpend riwayatpend) {
+        this.riwayatpendRepository.save(riwayatpend);
+    }
+
+    @Override
+    public Riwayatpend getRiwayatpendById(long id) {
+        Optional<Riwayatpend> optional = riwayatpendRepository.findById(id);
+        Riwayatpend riwayatpend;
+        if (optional.isPresent()) {
+            riwayatpend = optional.get();
+        } else {
+            throw new RuntimeException(" Riwayatpend not found for id :: " + id);
+        }
+        return riwayatpend;
+    }
+
+    @Override
+    public void deleteRiwayatpendById(long id) {
+        this.riwayatpendRepository.deleteById(id);
     }
 }

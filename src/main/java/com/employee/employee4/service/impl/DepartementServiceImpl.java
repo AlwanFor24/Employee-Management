@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class DepartementServiceImpl implements DepartementService {
+    /*
 
     private DepartementRepository departementRepository;
 
@@ -28,6 +30,11 @@ public class DepartementServiceImpl implements DepartementService {
                 .map((departement) -> DepartementMapper.mapToDepartementDto(departement))
                 .collect(Collectors.toList());
         return departementDtos;
+    }
+
+    @Override
+    public List<DepartementDto> findAllDepartements() {
+        return null;
     }
 
     @Override
@@ -51,5 +58,36 @@ public class DepartementServiceImpl implements DepartementService {
     @Override
     public void deleteDepartement(Long departementId) {
         departementRepository.deleteById(departementId);
+    }
+
+     */
+    @Autowired
+    private DepartementRepository departementRepository;
+
+    @Override
+    public List<Departement> getAllDepartements() {
+        return departementRepository.findAll();
+    }
+
+    @Override
+    public void saveDepartement(Departement departement) {
+        this.departementRepository.save(departement);
+    }
+
+    @Override
+    public Departement getDepartementById(long id) {
+        Optional<Departement> optional = departementRepository.findById(id);
+        Departement departement;
+        if (optional.isPresent()) {
+            departement =  optional.get();
+        } else {
+            throw new RuntimeException(" Departement not found for id :: " + id);
+        }
+        return departement;
+    }
+
+    @Override
+    public void deleteDepartementById(long id) {
+        this.departementRepository.deleteById(id);
     }
 }

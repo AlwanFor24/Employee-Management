@@ -20,8 +20,8 @@ public class EmployeeDto {
     private int nip;
     private byte[] foto;
     private String nama;
-    private Departement departement;
-    private Riwayatpend riwayatpend;
+    private String departement;
+    private String riwayatpend;
     private String email;
     private int notelp;
     private float salary;

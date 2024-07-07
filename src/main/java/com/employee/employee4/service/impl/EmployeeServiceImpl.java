@@ -2,27 +2,29 @@ package com.employee.employee4.service.impl;
 
 import com.employee.employee4.dto.EmployeeDto;
 import com.employee.employee4.entity.Employee;
-import com.employee.employee4.entity.Resign;
 import com.employee.employee4.mapper.EmployeeMapper;
 import com.employee.employee4.repository.EmployeeRepository;
-import com.employee.employee4.repository.ResignRepository;
 import com.employee.employee4.service.EmployeeService;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-
+/*
     private EmployeeRepository employeeRepository;
 
 
-    private ResignRepository resignRepository;
+
 
     @Autowired
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
@@ -60,6 +62,38 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(Long employeeId) {
         employeeRepository.deleteById(employeeId);
+    }
+
+
+ */
+@Autowired
+private EmployeeRepository employeeRepository;
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    @Override
+    public void saveEmployee(Employee employee) {
+        this.employeeRepository.save(employee);
+    }
+
+    @Override
+    public Employee getEmployeeById(long id) {
+        Optional<Employee> optional = employeeRepository.findById(id);
+        Employee employee;
+        if (optional.isPresent()) {
+            employee =  optional.get();
+        } else {
+            throw new RuntimeException(" Employee not found for id :: " + id);
+        }
+        return employee;
+    }
+
+    @Override
+    public void deleteEmployeeById(long id) {
+        this.employeeRepository.deleteById(id);
     }
 
 }
