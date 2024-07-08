@@ -233,7 +233,7 @@
 
     <div class="main">
         <nav class="navbar navbar-expand px-4 py-3">
-            <h3 class="fw-bold fs-4 mb-3">Menu Utama</h3>
+            <h3 class="fw-bold fs-4 mb-3">Departement</h3>
             <div class="navbar-collapse collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
@@ -242,7 +242,7 @@
                             <i class="lni lni-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end rounded">
-                             Dropdown content
+                            Dropdown content
                         </div>
                     </li>
                 </ul>
@@ -251,28 +251,22 @@
         <main class="content px-3 py-4">
             <div class="container-fluid">
                 <div class="mb-3">
-                    <h2 class="fw-bold fs-4 my-3">Daftar Karyawan</h2>
-                    <a th:href="@{/showNewEmployeeForm}" class="btn btn-secondary">Tambah</a>
+                    <h2 class="fw-bold fs-4 my-3">Daftar Departement</h2>
+                    <a th:href="@{/showNewDepartementForm}" class="btn btn-secondary">Tambah</a>
                     <div class="row">
                         <div class="col-12">
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>No.</th>
-                                    <th>NIP</th>
-                                    <th>Nama</th>
+                                    <th>Departement</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="employee : ${listEmployees}">
-                                    <td th:text="${employee.id}"></td>
-                                    <td th:text="${employee.nip}"></td>
-                                    <td th:text="${employee.nama}"></td>
+                                <tr th:each="departement : ${listDepartements}">
+                                    <td th:text="${departement.namadepart}"></td>
                                     <td>
-                                        <a th:href="@{/showFormEmployeeForUpdate/{id}(id=${employee.id})}" class="btn btn-primary" role="button">Ubah</a>
-                                        <a th:href="@{/readEmployee/{id}(id=${employee.id})}" class="btn btn-info" role="button">Detail</a>
-                                        <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger" role="button">Hapus</a>
+                                        <a th:href="@{/deleteDepartement/{id}(id=${departement.id})}" class="btn btn-danger" role="button">Hapus</a>
                                     </td>
                                 </tr>
                                 </tbody>

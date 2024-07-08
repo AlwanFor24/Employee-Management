@@ -96,4 +96,10 @@ private EmployeeRepository employeeRepository;
         this.employeeRepository.deleteById(id);
     }
 
+
+    @Override
+    public Optional<Employee> getProductById(long id) {
+        return employeeRepository.findById(id);
+    }
+
 }

@@ -190,38 +190,15 @@
 <body>
 <div class="container">
     <hr>
-    <h2>Tambah Karyawan</h2>
-    <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
-        <label>NIP</label>
-        <input type="text" th:field="*{nip}" placeholder="" class="form-control mb-4 col-4">
-        <label>Nama</label>
-        <input type="text" th:field="*{nama}" placeholder="" class="form-control mb-4 col-4">
-        <label>Departement</label>
-        <select class="form-select" aria-label="Default select example" id="departement" name="departement">
-            <option value="" th:if="${departement== null}" selected> </option>
-            <option th:each="departement : ${listDepartements}"
-                    th:value="${departement.id}"
-                    th:text="${departement.namadepart}"
-                    th:if="${departement != null}"></option>
-        </select>
-        <label>Riwayat Pendidikan</label>
-        <select class="form-select" aria-label="Default select example" id="riwayatpend" name="riwayatpend">
-            <option value="" th:if="${riwayatpend == null}" selected> </option>
-            <option th:each="riwayatpend : ${listRiwayatpends}"
-                    th:value="${riwayatpend.id}"
-                    th:text="${riwayatpend.pendidikan}"
-                    th:if="${riwayatpend != null}"></option>
-        </select>
-        <label>No. Telepon</label>
-        <input type="text" th:field="*{notelp}" placeholder="" class="form-control mb-4 col-4">
-        <label>Email</label>
-        <input type="text" th:field="*{email}" placeholder="" class="form-control mb-4 col-4">
-        <label>Gaji</label>
-        <input type="text" th:field="*{gaji}" placeholder="" class="form-control mb-4 col-4">
+    <h2>Tambah Kategori Pendidikan Terakhir</h2>
+    <form action="#" th:action="@{/saveRiwayatpend}" th:object="${riwayatpend}" method="POST">
+        <label>Pendidikan</label>
+        <input type="text" th:field="*{pendidikan}" placeholder="" class="form-control mb-4 col-4">
+
         <button type="submit" class="btn btn-info col2">Tambah</button>
     </form>
     <hr>
-    <a th:href="@{/employee}" class="btn btn-light">Kembali</a>
+    <a th:href="@{/riwayatpend}" class="btn btn-light">Kembali</a>
 </div>
 </body>
 </html>

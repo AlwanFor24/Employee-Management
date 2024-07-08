@@ -194,51 +194,46 @@
                 <i class="lni lni-angle-double-right"></i>
             </button>
             <div class="sidebar-logo">
-                <a href="#">Employee</a>
+                <a th:href="@{/employee}">KELOMPOK 4 IF-A</a>
             </div>
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a th:href="@{/employee}" class="sidebar-link">
                     <i class="lni lni-grid-alt"></i>
                     <span>Menu Utama</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a th:href="@{/departement}" class="sidebar-link">
                     <i class="lni lni-apartment"></i>
                     <span>Departement</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a th:href="@{/riwayatpend}" class="sidebar-link">
                     <i class="lni lni-envelope"></i>
-                    <span>Cuti</span>
+                    <span>Riwayatpend</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="lni lni-exit-down"></i>
-                    <span>Resign</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a th:href="@{/users}" class="sidebar-link">
                     <i class="lni lni-consulting"></i>
                     <span>Admin</span>
                 </a>
             </li>
         </ul>
         <div class="sidebar-footer">
-            <a href="#" class="sidebar-link">
+            <a th:href="@{/logout}" class="sidebar-link">
                 <i class="lni lni-exit"></i>
                 <span>Logout</span>
             </a>
         </div>
     </aside>
+
     <div class="main">
         <nav class="navbar navbar-expand px-4 py-3">
-            <h3 class="fw-bold fs-4 mb-3">Menu Utama</h3>
+            <h3 class="fw-bold fs-4 mb-3">Riwayat Pendidikan</h3>
             <div class="navbar-collapse collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
@@ -247,7 +242,7 @@
                             <i class="lni lni-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end rounded">
-                            <!-- Dropdown content -->
+                            Dropdown content
                         </div>
                     </li>
                 </ul>
@@ -256,32 +251,27 @@
         <main class="content px-3 py-4">
             <div class="container-fluid">
                 <div class="mb-3">
-                    <h3 class="fw-bold fs-4 my-3">Avg. Agent Earnings</h3>
-                    <!--/*<a th:href="@{/newEmployee/{id}(id=${employee.id})}" class="btn btn-secondary">Add</a>*/-->
+                    <h2 class="fw-bold fs-4 my-3">Kategori Pendidikan Terakhir</h2>
+                    <a th:href="@{/showNewRiwayatpendForm}" class="btn btn-secondary">Tambah</a>
                     <div class="row">
                         <div class="col-12">
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Riwayat Pendidikan</th>
-
+                                    <th>Pendidikan</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="riwayatpend : ${riwayatpends}">
-                                    <td th:text="${riwayatpend.id}"></td>
-                                    <td th:text="${riwayatpend.riwayat}"></td>
+                                <tr th:each="riwayatpend : ${listRiwayatpends}">
+                                    <td th:text="${riwayatpend.pendidikan}"></td>
                                     <td>
-                                        <!--/*
-                                        <a th:href="@{/employees/edit}" class="btn btn-primary" role="button">Edit</a>
-                                        <a th:href="@{/employees/view}" class="btn btn-info" role="button">View</a>
-                                        <a th:href="@{/employees/delete}" class="btn btn-danger" role="button">Delete</a>
-                                        */-->
+                                        <a th:href="@{/deleteRiwayatpend/{id}(id=${riwayatpend.id})}" class="btn btn-danger" role="button">Hapus</a>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>

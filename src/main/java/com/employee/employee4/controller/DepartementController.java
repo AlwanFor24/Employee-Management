@@ -134,5 +134,17 @@ public class DepartementController {
         this.departementService.deleteDepartementById(id);
         return "redirect:/departement";
     }
+
+    @GetMapping("/createselectEditEmployeeFromDepart")
+    public String createEmployeeFromDepart(Model model) {
+        model.addAttribute("listDepartements", departementService.getAllDepartements());
+        return "new_employee";
+    }
+
+    @GetMapping("/updateselectEditEmployeeFromDepart")
+    public String editEmployeeFromDepart(Model model) {
+        model.addAttribute("listDepartements", departementService.getAllDepartements());
+        return "update_employee";
+    }
 }
 

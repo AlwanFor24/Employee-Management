@@ -120,7 +120,7 @@ public class RiwayatpendController {
     @PostMapping("/saveRiwayatpend")
     public String saveRiwayatpend(@ModelAttribute("riwayatpend") Riwayatpend riwayatpend) {
         riwayatpendService.saveRiwayatpend(riwayatpend);
-        return "redirect:/";
+        return "redirect:/riwayatpend";
     }
 
     @GetMapping("/showFormRiwayatpendForUpdate/{id}")
@@ -133,6 +133,19 @@ public class RiwayatpendController {
     @GetMapping("/deleteRiwayatpend/{id}")
     public String deleteRiwayatpend(@PathVariable (value = "id") long id) {
         this.riwayatpendService.deleteRiwayatpendById(id);
-        return "redirect:/";
+        return "redirect:/index_riwayatpend";
     }
+
+    @GetMapping("/editselectEmployeeFromRiwayatpend")
+    public String createEmployeeFromRiwayatpend(Model model) {
+        model.addAttribute("listRiwayatpends", riwayatpendService.getAllRiwayatpends());
+        return "new_employee";
+    }
+    @GetMapping("/createselectEmployeeFromRiwayatpend")
+    public String editEmployeeFromRiwayatpend(Model model) {
+        model.addAttribute("listRiwayatpends", riwayatpendService.getAllRiwayatpends());
+        return "update_employee";
+    }
+
+
 }

@@ -137,6 +137,7 @@ public class SecurityConfig {
                 .requestMatchers("saveEmployee").permitAll()
                 .requestMatchers("showFormEmployeeForUpdate/{id}").permitAll()
                 .requestMatchers("deleteEmployee/{id}").permitAll()
+                .requestMatchers("/readEmployee/{id}").permitAll()
                 .requestMatchers("/departement").permitAll()
                 .requestMatchers("/showNewDepartementForm").permitAll()
                 .requestMatchers("/saveDepartement").permitAll()
@@ -147,6 +148,7 @@ public class SecurityConfig {
                 .requestMatchers("/saveRiwayatpend").permitAll()
                 .requestMatchers("/showFormRiwayatpendForUpdate/{id}").permitAll()
                 .requestMatchers("/deleteRiwayatpend/{id}").permitAll()
+
                 //.requestMatchers("/users").hasRole("USER")
                 .and()
                 .formLogin(
