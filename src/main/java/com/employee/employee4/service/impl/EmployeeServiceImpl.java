@@ -1,9 +1,13 @@
 package com.employee.employee4.service.impl;
 
 import com.employee.employee4.dto.EmployeeDto;
+import com.employee.employee4.entity.Departement;
 import com.employee.employee4.entity.Employee;
+import com.employee.employee4.entity.Riwayatpend;
 import com.employee.employee4.mapper.EmployeeMapper;
+import com.employee.employee4.repository.DepartementRepository;
 import com.employee.employee4.repository.EmployeeRepository;
+import com.employee.employee4.repository.RiwayatpendRepository;
 import com.employee.employee4.service.EmployeeService;
 
 import jakarta.persistence.Column;
@@ -69,6 +73,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 @Autowired
 private EmployeeRepository employeeRepository;
 
+@Autowired
+private DepartementRepository departementRepository;
+
+@Autowired
+private RiwayatpendRepository riwayatpendRepository;
+
     @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
@@ -98,8 +108,11 @@ private EmployeeRepository employeeRepository;
 
 
     @Override
-    public Optional<Employee> getProductById(long id) {
+    public Optional<Employee> getKaryawanById(long id) {
         return employeeRepository.findById(id);
     }
+
+
+
 
 }

@@ -266,6 +266,7 @@
                                 <tr th:each="departement : ${listDepartements}">
                                     <td th:text="${departement.namadepart}"></td>
                                     <td>
+                                        <a th:href="@{/showFormDepartementForUpdate/{id}(id=${departement.id})}" class="btn btn-primary" role="button">Ubah</a>
                                         <a th:href="@{/deleteDepartement/{id}(id=${departement.id})}" class="btn btn-danger" role="button">Hapus</a>
                                     </td>
                                 </tr>

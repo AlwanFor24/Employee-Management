@@ -1,6 +1,7 @@
 package com.employee.employee4.service.impl;
 
 import com.employee.employee4.dto.RiwayatpendDto;
+import com.employee.employee4.entity.Departement;
 import com.employee.employee4.entity.Riwayatpend;
 import com.employee.employee4.mapper.RiwayatpendMapper;
 import com.employee.employee4.repository.RiwayatpendRepository;
@@ -86,4 +87,7 @@ private RiwayatpendRepository riwayatpendRepository;
     public void deleteRiwayatpendById(long id) {
         this.riwayatpendRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<Riwayatpend> getGelarById(long id) {return riwayatpendRepository.findById(id);}
 }

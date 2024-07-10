@@ -16,6 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 
 public class EmployeeDto {
+
     private Long id;
     private int nip;
     private byte[] foto;

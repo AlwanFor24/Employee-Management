@@ -90,4 +90,7 @@ public class DepartementServiceImpl implements DepartementService {
     public void deleteDepartementById(long id) {
         this.departementRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<Departement> getDivisiById(long id) {return departementRepository.findById(id);}
 }

@@ -136,16 +136,6 @@ public class RiwayatpendController {
         return "redirect:/index_riwayatpend";
     }
 
-    @GetMapping("/editselectEmployeeFromRiwayatpend")
-    public String createEmployeeFromRiwayatpend(Model model) {
-        model.addAttribute("listRiwayatpends", riwayatpendService.getAllRiwayatpends());
-        return "new_employee";
-    }
-    @GetMapping("/createselectEmployeeFromRiwayatpend")
-    public String editEmployeeFromRiwayatpend(Model model) {
-        model.addAttribute("listRiwayatpends", riwayatpendService.getAllRiwayatpends());
-        return "update_employee";
-    }
 
 
 }

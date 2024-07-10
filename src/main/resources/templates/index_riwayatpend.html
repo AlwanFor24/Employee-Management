@@ -266,6 +266,7 @@
                                 <tr th:each="riwayatpend : ${listRiwayatpends}">
                                     <td th:text="${riwayatpend.pendidikan}"></td>
                                     <td>
+                                        <a th:href="@{/showFormRiwayatpendForUpdate/{id}(id=${riwayatpend.id})}" class="btn btn-primary" role="button">Ubah</a>
                                         <a th:href="@{/deleteRiwayatpend/{id}(id=${riwayatpend.id})}" class="btn btn-danger" role="button">Hapus</a>
                                     </td>
                                 </tr>

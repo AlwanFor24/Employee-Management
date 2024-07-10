@@ -197,18 +197,18 @@
         <label>Nama</label>
         <input type="text" th:field="*{nama}" placeholder="" class="form-control mb-4 col-4">
         <label>Departement</label>
-        <select class="form-select" aria-label="Default select example" id="departement" name="departement">
+        <select class="form-select" aria-label="Default select example" th:field=*{departement} id="departement" name="departement">
             <option value="" th:if="${departement== null}" selected> </option>
             <option th:each="departement : ${listDepartements}"
-                    th:value="${departement.id}"
+                    th:value="${departement.namadepart}"
                     th:text="${departement.namadepart}"
                     th:if="${departement != null}"></option>
         </select>
         <label>Riwayat Pendidikan</label>
-        <select class="form-select" aria-label="Default select example" id="riwayatpend" name="riwayatpend">
+        <select class="form-select" aria-label="Default select example" th:field=*{riwayatpend} id="riwayatpend" name="riwayatpend">
             <option value="" th:if="${riwayatpend == null}" selected> </option>
             <option th:each="riwayatpend : ${listRiwayatpends}"
-                    th:value="${riwayatpend.id}"
+                    th:value="${riwayatpend.pendidikan}"
                     th:text="${riwayatpend.pendidikan}"
                     th:if="${riwayatpend != null}"></option>
         </select>

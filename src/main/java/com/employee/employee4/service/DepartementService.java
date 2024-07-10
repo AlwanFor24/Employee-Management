@@ -4,6 +4,7 @@ import com.employee.employee4.dto.DepartementDto;
 import com.employee.employee4.entity.Departement;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DepartementService {
     /*
@@ -24,4 +25,6 @@ public interface DepartementService {
         void saveDepartement(Departement departement);
         Departement getDepartementById(long id);
         void deleteDepartementById(long id);
+
+        Optional<Departement> getDivisiById(long id);
 }

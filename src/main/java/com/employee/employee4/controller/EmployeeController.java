@@ -164,8 +164,10 @@ import java.util.Optional;
     }
 
     @GetMapping("/readEmployee/{id}")
-    public String getProductById(@PathVariable Long id, Model model) {
-        employeeService.getProductById(id).ifPresent(employee -> model.addAttribute("employee", employee));
+    public String getKaryawanById(@PathVariable Long id, Model model) {
+        employeeService.getKaryawanById(id).ifPresent(employee -> model.addAttribute("employee", employee));
+        departementService.getDivisiById(id).ifPresent(departement -> model.addAttribute("departement", departement));
+        riwayatpendService.getGelarById(id).ifPresent(riwayatpend -> model.addAttribute("riwayatpend", riwayatpend));
         return "read_employee";
     }
 }

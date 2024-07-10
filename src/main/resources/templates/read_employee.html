@@ -190,33 +190,33 @@
 
 </head>
 <body>
-        <main class="content px-3 py-4">
-            <div class="container-fluid">
-                <div class="mb-3">
-                    <h2 class="fw-bold fs-4 my-3">Detail Karywan</h2>
-                    <ul class="list-group" th:if="${employee != null}">
-                        <label>No</label>
-                        <li class="list-group-item" th:text="${employee.id}"></li>
-                        <label>NIP</label>
-                        <li class="list-group-item" th:text="${employee.nip}"></li>
-                        <label>Nama</label>
-                        <li class="list-group-item" th:text="${employee.nama}"></li>
-                        <label>Departement</label>
-                        <li class="list-group-item" th:text="${employee.departement}"></li>
-                        <label>Pendidikan Terakhir</label>
-                        <li class="list-group-item" th:text="${employee.riwayatpend}"></li>
-                        <label>No.Telpon</label>
-                        <li class="list-group-item" th:text="${employee.notelp}"></li>
-                        <label>Email</label>
-                        <li class="list-group-item" th:text="${employee.email}"></li>
-                        <label>Gaji</label>
-                        <li class="list-group-item" th:text="${employee.gaji}"></li>
-                    </ul>
-                </div>
-            </div>
-        </main>
+<main class="content px-3 py-4">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h2 class="fw-bold fs-4 my-3">Detail Karywan</h2>
+            <ul class="list-group" th:if="${employee != null}">
+                <label>No</label>
+                <li class="list-group-item" th:text="${employee.id}"></li>
+                <label>NIP</label>
+                <li class="list-group-item" th:text="${employee.nip}"></li>
+                <label>Nama</label>
+                <li class="list-group-item" th:text="${employee.nama}"></li>
+                <label>Departement</label>
+                <li class="list-group-item" th:text="${employee.departement}"></li>
+                <label>Pendidikan Terakhir</label>
+                <li class="list-group-item" th:text="${employee.riwayatpend}"></li>
+                <label>No.Telpon</label>
+                <li class="list-group-item" th:text="${employee.notelp}"></li>
+                <label>Email</label>
+                <li class="list-group-item" th:text="${employee.email}"></li>
+                <label>Gaji</label>
+                <li class="list-group-item" th:text="${employee.gaji}"></li>
+            </ul>
+        </div>
     </div>
-        <a th:href="@{/employee}" class="btn btn-light">Kembali</a>
+</main>
+</div>
+<a th:href="@{/employee}" class="btn btn-light">Kembali</a>
 </div>
 </body>
 </html>

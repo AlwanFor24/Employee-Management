@@ -1,7 +1,9 @@
 package com.employee.employee4.service;
 
 import com.employee.employee4.dto.EmployeeDto;
+import com.employee.employee4.entity.Departement;
 import com.employee.employee4.entity.Employee;
+import com.employee.employee4.entity.Riwayatpend;
 import com.employee.employee4.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,11 +22,21 @@ public interface EmployeeService {
     void deleteEmployee(Long employeeId);
 
      */
+    //menampilkan semua data karyawan
     List<Employee> getAllEmployees();
+    //menyimpan perubahan atau pembuatan data karyawan
     void saveEmployee(Employee employee);
+
+    //menampilkan data karyawan ( per orang )
     Employee getEmployeeById(long id);
+
+    // Menghapus data
     void deleteEmployeeById(long id);
-    Optional<Employee> getProductById(long id);
+
+    //Menampilkan data karyawan ( per orang , Optional untuk menghindari null value error,
+    // data masih bisa ditampilkan walaupun ada null value )
+    Optional<Employee> getKaryawanById(long id);
+
 
 
 
