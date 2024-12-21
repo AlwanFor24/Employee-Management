@@ -15,7 +15,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "employees")
+@Table(
+        name = "employees",
+        uniqueConstraints = {@UniqueConstraint(columnNames ={"nama"} )}
+
+)
 public class Employee {
     /*
 
