@@ -2,7 +2,7 @@
 const CACHE_NAME = "employee-management-cache-v1";
 const urlsToCache = [
   "/",
-  "/index.html",
+  "/templates/index_departement.html",
   "/manifest.json",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png"
