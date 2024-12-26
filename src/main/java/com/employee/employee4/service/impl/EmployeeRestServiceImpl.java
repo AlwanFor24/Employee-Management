@@ -75,6 +75,31 @@ public class EmployeeRestServiceImpl implements EmployeeRestService {
         return mapToDTO(employee); // Assuming there's a method to map Employee to EmployeeDto
     }
 
+    @Override
+    public EmployeeDto updateEmployee(EmployeeDto employeeDto, long id) {
+        // get employee by id from table
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", id));
+
+        employee.setNama(employeeDto.getNama());
+        employee.setNip(employeeDto.getNip());
+        employee.setDepartement(employeeDto.getDepartement());
+        employee.setRiwayatpend(employeeDto.getRiwayatpend());
+        employee.setNotelp(employeeDto.getNotelp());
+        employee.setEmail(employeeDto.getEmail());
+        employee.setGaji(employeeDto.getGaji());
+
+        Employee updatedEmployee = employeeRepository.save(employee);
+        return mapToDTO(updatedEmployee);
+    }
+
+    @Override
+    public void deleteEmployeeById(long id) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", id));
+        employeeRepository.delete(employee);
+    }
+
     private EmployeeDto mapToDTO(Employee employee){
         EmployeeDto employeeDto = new EmployeeDto();
         employeeDto.setId(employee.getId());

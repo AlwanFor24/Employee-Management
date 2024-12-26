@@ -11,4 +11,8 @@ public interface EmployeeRestService {
 
     EmployeeDto getEmployeeById(long id);
 
+    EmployeeDto updateEmployee(EmployeeDto employeeDto, long id);
+
+    void deleteEmployeeById(long id);
+
 }
